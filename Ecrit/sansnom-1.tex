@@ -1,0 +1,154 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{lmodern} % Police standard sous LaTeX : Latin Modern
+\usepackage[french]{babel} % Pour la langue française
+\usepackage[utf8]{inputenc} % Pour l'UTF-8
+\usepackage[T1]{fontenc} % Pour les césures des caractères accentués
+\usepackage{amsmath,amsfonts, amssymb}
+\usepackage{geometry}
+\geometry{margin=2cm}
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall\,}
+\everymath{\displaystyle} 
+\usepackage{titlesec}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+
+\begin{document}
+
+\title{Lien entre IPS et goûts d'élèves de}
+\author{
+   \bsc{Enzo Merioud}
+   \and
+   \bsc{Rayan Moustafid Dos Santos}
+   \and
+    \bsc{Monsieur S. Gibaud}\thanks{Directeur d'étude}
+} 
+\date{Jeudi 11 Janvier 2024} 
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+\subsection{Motivations}
+
+\subsection{Prérequis Mathématiques, la régression linéaire}
+On a : $y_i = \beta_0 + \beta_{1}x_{1,i} + \beta_{2}x_{2,i} + \beta_{3}x_{3,i} + \cdots + \beta_{p}x_{p,i} + \varepsilon_i$
+\\
+Avec : i : la i-ème observation de la variable Y, $\beta$ : les coefficients du modèle, $x_{1,i}$ à $x_{p,i}$ les i-ème observation de la j-ème variable explicative et $\varepsilon_i$ l'erreur du modèle.
+\\
+Cela est équivalent à l'écriture matricielle : $Y = X\beta + \varepsilon$
+\\ Soit :
+\[
+Y =
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n \\
+\end{pmatrix}
+, X =
+\begin{pmatrix}
+x'_1\\
+x'_2\\
+\vdots \\
+x'_n\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & x_11 & \cdots & x_{1K} \\
+1 & x_21 & \cdots & x_{2K} \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & x_{n1} & \cdots & x_{nK}
+\end{pmatrix}
+, \beta =
+\begin{pmatrix}
+\beta_0\\
+\beta_1\\
+\vdots \\
+\beta_n\\
+\end{pmatrix}
+, \varepsilon =
+\begin{pmatrix}
+\varepsilon_1\\
+\varepsilon_2\\
+\vdots \\
+\varepsilon_n\\
+\end{pmatrix}
+\]
+\\
+Donc:
+\[
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & x_11 & \cdots & x_{1K} \\
+1 & x_21 & \cdots & x_{2K} \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & x_{n1} & \cdots & x_{nK}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+\beta_0\\
+\beta_1\\
+\vdots \\
+\beta_n\\
+\end{pmatrix}
++
+\begin{pmatrix}
+\varepsilon_1\\
+\varepsilon_2\\
+\vdots \\
+\varepsilon_n\\
+\end{pmatrix}
+\]
+
+\subsection{Explications}
+
+Le modèle linéaire est utilisé dans un grand nombre de champs disciplinaires. Il en résulte une grande variété dans la terminologie. Soit le modèle suivant : 
+\[
+Y = X\beta + \varepsilon
+\]
+La variable Y est appelée variable expliquée ou variable endogène. Les variables X sont appelées variables explicatives ou variables exogènes. $\varepsilon$ est appelé terme d'erreur ou perturbation.
+
+On note généralement $\hat{\beta}$ le vecteur des paramètres estimés. On définit la valeur prédite ou ajustée $\hat{Y} = X\hat{\beta}$ et le résidu comme la différence entre la valeur observée et la valeur prédite : 
+\[
+\hat{\varepsilon} = Y - \hat{Y}
+\]
+
+On définit aussi la somme des carrés des résidus (SCR) comme la somme sur toutes les observations des carrés des résidus :
+\[
+\mathrm{SCR} = \hat{\varepsilon}'\hat{\varepsilon} = \sum_{i=1}^{n}(y_{i}-\hat{y_{i}})^2
+\]
+\subsection{Organisation de l'étude et résultats obtenus}
+\subsubsection{Résultats Attendus}
+
+Le But de l'étude était de trouver un lien entre l'IPS des élève et leurs goûts en HGGSP. Effectivement, nous espérions que le coefficients de l'IPS soit le plus important. Malheureusement, d'après la régression linéaire, ce qui influence le plus les goûts des élèves c'est ce que préfère enseigner les professeurs. Cependant, l’IPS est lié au niveau d’étude des professeurs.
+
+\subsubsection{Résultats Obtenus}
+
+Nous avons donc chercher d'autres résultats avec les données que nous possédons, et c'est ce que l'on a trouvé.\\
+Nous avons d'abord chercher un lien entre \textbf{âge} des professeurs et \textbf{IPS}. Les coefficients sont cette fois positifs et suffisament hauts. Plus l'IPS est haut plus l'âge des professeur l'est aussi. Ce résultat est particulièrement intéressant, effectivement, cela montre que les professeurs plus âgés ont tendance à allés dans des lycées d'élèves plus aisés.\\
+Nous avons ensuite chercher un lien entre \textbf{sexe} des professeurs et \textbf{IPS}. Les coefficients étaient particulièrement élevés mais négatifs ($-3.02801885^{14}$ et $-3.02801885^{14}$).\\
+Finalement, nous avons fait une régression linéaire. Mais cette fois-ci, l'IPS est la donnée expliquée. Le coefficient le plus haut parmis les données explicatives est celui des professeurs qui ont fait une Classe préparatoire ECS ou équivalent. Tandis que le plus faible e st celui des professeurs qui ont suivis une Faculté de géographie – niveau licence ou équivalent. Ces résultats sont particulièrement intéressants puisque cela montre que lorsque le niveau d'étude des professeurs est haut, l'IPS aussi. Tandis que lorsque le niveau d'étude des professeurs est plutôt bas, l'IPS baisse. Cela peut aller à l'inverse de la pensée commune. Effectivment, on aurait tendance à penser que les professeurs ayant un plus fort niveau d'étude sont placés dans les lycées les moins favorisés.
+
+\subsubsection{Approximations faites}
+Par manque d'informations, des approximations ont du être fait durant l'étude. Effectivement, certains professeur n'avait renseigné que le nom de leur académie. Dans ce cas là, nous mettons l'IPS moyen en voie GT de l'académie.
+
+\newpage
+
+\section{Corps de l'étude}
+
+
+\end{document}
